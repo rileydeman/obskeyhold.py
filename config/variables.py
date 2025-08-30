@@ -6,8 +6,8 @@ KEYS = [
         "name": "NoLookie Map Cover",
         "input": "g",
         "wasPressed": False,
-        "show": "ctrl+alt+f11",
-        "hide": "ctrl+alt+f12",
+        "show": "f13",
+        "hide": "f14",
         "delay": 0  # Require key to be held this miliseconds long before SHOW (0 = immediate)
     },
     # Add more keys if you want

@@ -2,7 +2,6 @@
 from config.packages import checkPackages
 checkPackages()
 
-
 # Imports
 import time
 import keyboard
@@ -10,53 +9,51 @@ from config.variables import *
 
 # Functions
 def nowMS():
-    return time.time() * 1000
+    return time.time() * 1000.0
 
 def checkValidInput(inp, type):
     for key in KEYS:
         if key["input"] == inp:
-            isShown = bool(False)
             wasPressed = key["wasPressed"]
 
-            if type == "KD":
+            if type == "KD" and not wasPressed:
                 key["wasPressed"] = True
-                execute = bool(False)
-                downSince = nowMS()
 
-                while not execute and not isShown:
-                    if (nowMS() - downSince) >= key["delay"]:
-                        execute = True
+                if key.get("delay", 0) == 0:
+                    keyboard.press(key["show"])
+                    time.sleep(0.05)
+                    keyboard.release(key["show"])
+                    key["shown"] = True
 
-                if execute:
-                    keyboard.send(key["show"])
-                    isShown = True
+            elif type == "KU" and wasPressed:
+                keyboard.press(key["hide"])
+                time.sleep(0.05)
+                keyboard.release(key["hide"])
+                key["wasPressed"] = False
+                key["shown"] = False
 
-            elif type == "KU":
-                if wasPressed:
-                    keyboard.send(key["hide"])
-
-
+# Main Program
 print("Helper running. Press esc in this window to stop.")
 print("Listening for:\n")
 
 for key in KEYS:
-    print(f"{key["input"]}: {key['name']}")
+    print(f"{key["input"]}: {key["name"]}")
 
 print(LINE)
 
 while runProgram:
-    e = keyboard.read_event()
-    key = e.name
+    if keyboard.is_pressed("esc"):
+        runProgram = False
+        break
 
-    if e.event_type == keyboard.KEY_DOWN:
+    for key in KEYS:
+        down = keyboard.is_pressed(key["input"])
 
-        print(f"Key down: {key}")
+        if down and not key["wasPressed"]:
+            checkValidInput(key["input"], "KD")
 
-        checkValidInput(key, "KD")
+        if not down and key["wasPressed"]:
+            checkValidInput(key["input"], "KU")
 
-        if key == "esc":
-            runProgram = False
 
-    if e.event_type == keyboard.KEY_UP:
-        print(f"Key released: {key}")
-        checkValidInput(key, "KU")
+    time.sleep(PROGRAM_COOLDOWN)
