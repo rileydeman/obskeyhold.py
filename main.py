@@ -33,7 +33,7 @@ def checkValidInput(inp, type):
                 key["shown"] = False
 
 # Main Program
-print("Helper running. Press esc in this window to stop.")
+print("Helper running. Press ctrl+esc in this window to stop.")
 print("Listening for:\n")
 
 for key in KEYS:
@@ -42,7 +42,7 @@ for key in KEYS:
 print(LINE)
 
 while runProgram:
-    if keyboard.is_pressed("esc"):
+    if (keyboard.is_pressed("ctrl") and keyboard.is_pressed("esc")):
         runProgram = False
         break
 
