@@ -3,10 +3,11 @@ from config.packages import checkPackages
 checkPackages()
 
 # Imports
-import platform
-import time
-import keyboard
+import platform, time, keyboard, signal
 from config.variables import *
+
+# Disable Ctrl+C
+signal.signal(signal.SIGINT, signal.SIG_IGN)
 
 # Functions
 def nowMS():
@@ -39,7 +40,7 @@ def checkValidInput(inp, type):
                 print(f"{key['name']}: is now not active")
 
 # Main Program
-print("Helper running. Press ctrl+esc in this window to stop.")
+print("Helper running. Press ctrl+esc or ctrl+c in this window to stop.")
 print("Listening for:\n")
 
 for key in KEYS:
@@ -48,7 +49,7 @@ for key in KEYS:
 print(LINE)
 
 while runProgram:
-    if (keyboard.is_pressed("ctrl") and keyboard.is_pressed("esc")):
+    if (keyboard.is_pressed("ctrl") and keyboard.is_pressed("esc")) or (keyboard.is_pressed("ctrl") and keyboard.is_pressed("c")):
         runProgram = False
         print(f"Ending program...\n{LINE}")
         break
