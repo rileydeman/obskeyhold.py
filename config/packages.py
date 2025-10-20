@@ -22,7 +22,7 @@ def checkPackages():
             spec = importlib.util.find_spec(pkg["name"])
 
             if spec is None:
-                print(f"{pkg["name"]} is not installed! Installing...")
+                print(f"{pkg['name']} is not installed! Installing...")
                 reRunFunction = True
 
                 subprocess.check_call([sys.executable, "-m", "pip", "install", pkg["name"]])
@@ -30,9 +30,9 @@ def checkPackages():
                 pkg["installed"] = True
 
                 if checkedForPackages == 0:
-                    print(f"{pkg["name"]} is already installed!")
+                    print(f"{pkg['name']} is already installed!")
                 else:
-                    print(f"{pkg["name"]} is installed!")
+                    print(f"{pkg['name']} is installed!")
 
     checkedForPackages += 1
     if reRunFunction:
