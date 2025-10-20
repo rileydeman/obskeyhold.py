@@ -3,6 +3,7 @@ from config.packages import checkPackages
 checkPackages()
 
 # Imports
+import platform
 import time
 import keyboard
 from config.variables import *
@@ -10,6 +11,9 @@ from config.variables import *
 # Functions
 def nowMS():
     return time.time() * 1000.0
+
+def getOS():
+    return platform.system()
 
 def checkValidInput(inp, type):
     for key in KEYS:
@@ -24,6 +28,7 @@ def checkValidInput(inp, type):
                     time.sleep(0.05)
                     keyboard.release(key["show"])
                     key["shown"] = True
+                    print(f"{key['name']}: is now active")
 
             elif type == "KU" and wasPressed:
                 keyboard.press(key["hide"])
@@ -31,6 +36,7 @@ def checkValidInput(inp, type):
                 keyboard.release(key["hide"])
                 key["wasPressed"] = False
                 key["shown"] = False
+                print(f"{key['name']}: is now not active")
 
 # Main Program
 print("Helper running. Press ctrl+esc in this window to stop.")
@@ -44,6 +50,7 @@ print(LINE)
 while runProgram:
     if (keyboard.is_pressed("ctrl") and keyboard.is_pressed("esc")):
         runProgram = False
+        print(f"Ending program...\n{LINE}")
         break
 
     for key in KEYS:
