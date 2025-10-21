@@ -13,5 +13,5 @@ KEYS = [
     # Add more keys if you want
 ]
 
-# Variable
+# Variables
 runProgram = bool(True)
