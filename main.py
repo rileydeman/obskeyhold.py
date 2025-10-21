@@ -1,20 +1,21 @@
-# packages Check
+# --- Operating System Check ---
+from config.os import checkOS
+checkOS()
+
+# --- Packages Check ---
 from config.packages import checkPackages
 checkPackages()
 
-# Imports
-import platform, time, keyboard, signal
+# --- Imports ---
+import keyboard, platform, signal, time
 from config.variables import *
 
-# Disable Ctrl+C
+# --- Disable Ctrl+C ---
 signal.signal(signal.SIGINT, signal.SIG_IGN)
 
-# Functions
+# --- Functions ---
 def nowMS():
     return time.time() * 1000.0
-
-def getOS():
-    return platform.system()
 
 def checkValidInput(inp, type):
     for key in KEYS:
@@ -39,9 +40,9 @@ def checkValidInput(inp, type):
                 key["shown"] = False
                 print(f"{key['name']}: is now not active")
 
-# Main Program
+# --- Main Program ---
 print("Helper running. Press ctrl+esc or ctrl+c in this window to stop.")
-print("Listening for:\n")
+print("Listening for:")
 
 for key in KEYS:
     print(f"{key["input"]}: {key["name"]}")
@@ -62,6 +63,5 @@ while runProgram:
 
         if not down and key["wasPressed"]:
             checkValidInput(key["input"], "KU")
-
 
     time.sleep(PROGRAM_COOLDOWN)

@@ -1,6 +1,10 @@
-# Constants
+# --- Imports ---
+import platform
+
+# --- Constants ---
 LINE = "\n=========================================\n"
 PROGRAM_COOLDOWN = 0.01
+OS = platform.system()
 KEYS = [
     {
         "name": "NoLookie Map Cover",
@@ -13,5 +17,5 @@ KEYS = [
     # Add more keys if you want
 ]
 
-# Variables
+# --- Variables ---
 runProgram = bool(True)

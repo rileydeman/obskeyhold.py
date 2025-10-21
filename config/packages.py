@@ -1,8 +1,8 @@
-import importlib.util
-import subprocess
-import sys
+# --- Imports ---
+import importlib.util, subprocess, sys
 from config.variables import *
 
+# --- Variables ---
 checkedForPackages = int(0)
 packages = [
     {
@@ -11,11 +11,15 @@ packages = [
     }
 ]
 
+# --- Package Checker function ---
 def checkPackages():
+    if OS != "Windows":
+        sys.exit(f"Unsupported operating system detected ({OS}).\n> Package installation skipped\n{LINE}")
+
     global checkedForPackages, packages
     reRunFunction = bool(False)
 
-    print("Checking packages...")
+    print("Checking packages...\n")
 
     for pkg in packages:
         if checkedForPackages == 0 or not pkg["installed"]:
