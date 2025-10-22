@@ -2,7 +2,7 @@
 import sys
 from config.variables import OS, LINE
 
-# --- OS check funtion ---
+# --- OS check function ---
 def checkOS():
     if OS == "Windows":
         print(f"Supported operating system detected ({OS}).\n{LINE}")

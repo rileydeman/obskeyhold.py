@@ -1,5 +1,5 @@
 # --- Operating System Check ---
-from config.os import checkOS
+from config.env import checkOS
 checkOS()
 
 # --- Packages Check ---
