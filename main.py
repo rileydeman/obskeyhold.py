@@ -2,6 +2,10 @@
 from config.env import checkOS
 checkOS()
 
+# --- Python Version Check ---
+from config.version import checkPyVersion
+checkPyVersion()
+
 # --- Packages Check ---
 from config.packages import checkPackages
 checkPackages()
