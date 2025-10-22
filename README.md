@@ -21,6 +21,7 @@ This tool allows streamers to automatically hide or show in-game maps (like in *
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Technical Information](#-technical-information)
+- [Troubleshooting](#-troubleshooting)
 - [License Notice](#-license-notice)
 - [Copyright](#-copyright)
 - [License](#-license)
