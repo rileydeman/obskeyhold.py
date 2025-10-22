@@ -161,7 +161,7 @@ The tool will now handle your key presses automatically while you stream, ensuri
 <tbody>
     <tr>
         <td>Programming Languages</td>
-        <td>Python 3.14.0</td>
+        <td>Python</td>
     </tr>
     <tr>
         <td>Packages Used</td>
