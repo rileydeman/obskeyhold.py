@@ -243,7 +243,7 @@ This project is licensed for **personal and educational use only**.
 
 To use this project (or any part of it) in a **public** or **commercial** context, you must obtain **written permission** from the author:
 
-**Author:** [@rileydeman](https://github.com/rileydeman)
+**Author:** [@rileydeman](https://forge.rdmge.sh/rileydeman)
 
 See the full [LICENSE](./LICENSE) file for complete terms and conditions.
 
@@ -262,7 +262,7 @@ See the [LICENSE](./LICENSE) file for full terms.
 
 ## 📝 License
 
-Custom license &copy; [rileydeman](https://github.com/rileydeman)  
+Custom license &copy; [rileydeman](https://forge.rdmge.sh/rileydeman)  
 See the [LICENSE](./LICENSE) file for full terms.
 
 ---
